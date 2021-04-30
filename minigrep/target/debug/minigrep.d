@@ -1,1 +1,1 @@
-/Users/augustomachado/github/rust_grep_cli/minigrep/target/debug/minigrep: /Users/augustomachado/github/rust_grep_cli/minigrep/src/main.rs
+/Users/augustomachado/github/rust_grep_cli/minigrep/target/debug/minigrep: /Users/augustomachado/github/rust_grep_cli/minigrep/src/lib.rs /Users/augustomachado/github/rust_grep_cli/minigrep/src/main.rs
