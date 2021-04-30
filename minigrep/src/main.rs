@@ -26,6 +26,11 @@ struct Config {
 // Note: using primitive values when a complex type would be more appropriate is an anti-pattern knwon as primitive obsession.
 impl Config {
     fn new(args: &[String]) -> Config {
+        // If the slice isn't long enough, the program panics and displays a better error message than the
+        // `index out of bounds` message.
+        if args.len() < 3 {
+            panic!("not enough arguments");
+        }
         
         // When we printed the vector, the program's name takes up the first value in the vector at args[0], so we're starting at the
         // index 1. 
