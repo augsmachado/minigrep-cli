@@ -25,11 +25,11 @@ struct Config {
 
 // Note: using primitive values when a complex type would be more appropriate is an anti-pattern knwon as primitive obsession.
 impl Config {
-    fn new(args: &[String]) -> Config {
+    fn new(args: &[String]) -> Result<Config, &str> {
         // If the slice isn't long enough, the program panics and displays a better error message than the
         // `index out of bounds` message.
         if args.len() < 3 {
-            panic!("not enough arguments");
+            return Err("not enough arguments");
         }
         
         // When we printed the vector, the program's name takes up the first value in the vector at args[0], so we're starting at the
@@ -37,6 +37,6 @@ impl Config {
         let query = args[1].clone();
         let filename = args[2].clone();
 
-        Config { query, filename }
+        Ok(Config { query, filename })
     }
 }
