@@ -9,18 +9,18 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     // Saves the values of the two arguments in variables so we can use the values throughout the rest of the program.
-    let config = Config::new(&args).unwrap_or_else(|err| {
+    let config = Config::new(&args).unwrap_or_else(|_err| {
         // A nonzero exit status is a convention to signal to the process that called our program that the program exited with an
         // error state
-        println!("Problems parsing arguments: {}", err);
+        //println!("Problems parsing arguments: {}", err);
         process::exit(1);
     });
-    println!("Searching for {}", config.query);
-    println!("In file {}", config.filename);
+    //println!("Searching for {}", config.query);
+    //println!("In file {}", config.filename);
 
     // Reading the file
-    if let Err(e) = minigrep::run(config) {
-        println!("Application erro: {}", e);
+    if let Err(_e) = minigrep::run(config) {
+        //println!("Application error: {}", e);
 
         process::exit(1);
     };
