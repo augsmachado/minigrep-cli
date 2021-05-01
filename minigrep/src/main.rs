@@ -12,13 +12,13 @@ fn main() {
     let config = Config::new(&args).unwrap_or_else(|err| {
         // A nonzero exit status is a convention to signal to the process that called our program that the program exited with an
         // error state
-        println!("Problems parsing arguments: {}", err);
+        eprintln!("Problems parsing arguments: {}", err);
         process::exit(1);
     });
 
     // Reading the file
     if let Err(e) = minigrep::run(config) {
-        println!("Application error: {}", e);
+        eprintln!("Application error: {}", e);
 
         process::exit(1);
     };

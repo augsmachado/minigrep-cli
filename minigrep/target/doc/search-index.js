@@ -1,0 +1,4 @@
+var searchIndex = JSON.parse('{\
+"minigrep":{"doc":"","i":[[3,"Config","minigrep","",null,null],[12,"query","","",0,null],[12,"filename","","",0,null],[12,"case_sensitive","","",0,null],[11,"new","","",0,[[],[["config",3],["result",4],["str",15]]]],[5,"run","","",null,[[["config",3]],[["result",4],["box",3]]]],[5,"search","","",null,[[["str",15],["str",15]],[["str",15],["vec",3]]]],[5,"search_case_insensitive","","",null,[[["str",15],["str",15]],[["str",15],["vec",3]]]],[11,"from","","",0,[[]]],[11,"into","","",0,[[]]],[11,"borrow","","",0,[[]]],[11,"borrow_mut","","",0,[[]]],[11,"try_from","","",0,[[],["result",4]]],[11,"try_into","","",0,[[],["result",4]]],[11,"type_id","","",0,[[],["typeid",3]]]],"p":[[3,"Config"]]}\
+}');
+addSearchOptions(searchIndex);initSearch(searchIndex);
