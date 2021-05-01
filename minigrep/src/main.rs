@@ -1,6 +1,7 @@
 use std::env;
 use std::fs;
 use std::process;
+use std::error::Error;
 
 fn main() {
     // Iterators produce a series of values, and we can call the collect method on an iterator to turn it into a collection
@@ -19,17 +20,25 @@ fn main() {
     println!("In file {}", config.filename);
 
     // Reading the file
-    run(config);
+    if let Err(e) = run(config) {
+        println!("Application erro: {}", e);
+
+        process::exit(1);
+    };
     
 
 }
 
 // Extracting a run function containing the rest of program logic
-fn run(config: Config) {
-    let contents = fs::read_to_string(config.filename)
-        .expect("Something went wrong reading the file");
+fn run(config: Config) -> Result<(), Box<dyn Error>> {
+
+    // Instead of allowing the program to panic by calling expect, the run function will return a Result<T, E> when something
+    // goes wrong. This will let us further consolidate into main the logic around handling errors in a user-friendly way.
+    let contents = fs::read_to_string(config.filename)?;
 
     println!("With text:\n{}", contents);
+
+    Ok(())
 }
 
 
