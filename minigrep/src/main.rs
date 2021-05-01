@@ -19,10 +19,19 @@ fn main() {
     println!("In file {}", config.filename);
 
     // Reading the file
-    let contents = fs::read_to_string(config.filename).expect("Something went wrong reading the file");
-    println!("With text:\n{}", contents);
+    run(config);
+    
 
 }
+
+// Extracting a run function containing the rest of program logic
+fn run(config: Config) {
+    let contents = fs::read_to_string(config.filename)
+        .expect("Something went wrong reading the file");
+
+    println!("With text:\n{}", contents);
+}
+
 
 struct Config {
     query: String,
