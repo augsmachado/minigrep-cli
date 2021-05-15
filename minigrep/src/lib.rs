@@ -10,7 +10,7 @@ pub struct Config {
 
 // Note: using primitive values when a complex type would be more appropriate is an anti-pattern knwon as primitive obsession.
 impl Config {
-    pub fn new(args: &[String]) -> Result<Config, &str> {
+    pub fn new(mut args: env::Args) -> Result<Config, &'static str> {
         // If the slice isn't long enough, the program panics and displays a better error message than the
         // `index out of bounds` message.
         if args.len() < 3 {
